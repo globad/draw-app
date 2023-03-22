@@ -1,0 +1,146 @@
+.canvas-container {
+  position: relative;
+  padding: 0;
+}
+
+#main-layer {
+  position: absolute;
+}
+
+#canvas-overlay {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.drawing-tools-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  display: flex;
+  gap: 10px;
+  background-color: rgb(247, 247, 247);
+  padding: 5px;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 5px;
+  z-index: 3;
+}
+
+.drawing-tools-container.vertical {
+  flex-direction: column;
+}
+
+.button {
+  height: 30px;
+  background-color: white;
+  outline: none;
+  border: 1px solid lightgrey;
+  user-select: none;
+  padding: 5px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  min-width: 30px;
+}
+
+.drawing-tools-container.vertical .button {
+  justify-content: space-between;
+}
+
+.button.selected {
+  border: 2px solid rgb(173, 217, 247);
+}
+
+.button:hover,
+.input-container > label:hover {
+  filter: brightness(1.05);
+  color: rgb(61, 63, 75);
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  font-size: 15px;
+  user-select: none;
+}
+
+.input-container label.strikethrough {
+  text-decoration: line-through;
+}
+
+.can-be-clicked {
+  cursor: pointer;
+}
+
+.input-container input[type="color"] {
+  width: 30px;
+  height: 25px;
+  border: none;
+  padding: 0;
+}
+
+.input-container input[type="range"] {
+  width: calc(100% - 5px);
+}
+
+.input-container input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.input-container.vertical {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tool-icon.line {
+  transform: rotate(70deg);
+  font-size: 20px;
+  line-height: 20px;
+  display: inline-block;
+}
+
+@supports (-moz-appearance: button) and (contain: paint) {
+  .tool-icon.line {
+    margin-left: 6px;
+  }
+}
+
+.splitter {
+  margin: 0 10px;
+  background-color: rgb(221, 221, 221);
+  width: 1px;
+}
+
+.splitter.vertical {
+  margin: 10px 0;
+  height: 1px;
+  width: 100%;
+}
+
+.palette {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgb(247, 247, 247);
+  padding: 2px;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 5px;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 390px;
+  transition: background-color 0.5s ease;
+}
+
+.color {
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgb(221, 221, 221);
+  margin: 2px;
+}
